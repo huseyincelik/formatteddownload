@@ -43,6 +43,7 @@ filename, extension = os.path.splitext(first_url)
 for args in arguments:
     url = url_with_format.format(*args)
     response = urllib.urlopen(url)
-    if response.getcode() == 404:
+    print response.getcode()
+    if response.getcode() == 200:
         urllib.urlretrieve(url, "file" + str(file_count) + extension)
         file_count += 1
